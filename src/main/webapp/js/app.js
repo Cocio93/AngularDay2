@@ -32,6 +32,19 @@ myApp.controller('CarController', [function () {
   $scope.feedback.comments;
   $scope.feedback.satisfactionValue;
   $scope.feedback.selectedEmotions = [];//['Happy'];
+  
+  $scope.toggleSelect = function(value) {
+      if ($scope.feedback.selectedEmotions.indexOf(value) > -1) {
+          var index = $scope.feedback.selectedEmotions.indexOf(value);
+          $scope.feedback.selectedEmotions.splice(index, 1);
+      } else {
+          $scope.feedback.selectedEmotions.push(value);
+      } 
+  };
+  
+  $scope.isChecked = function(value) {
+      return ($scope.feedback.selectedEmotions.indexOf(value) > -1);
+  };
 
 }]);
 

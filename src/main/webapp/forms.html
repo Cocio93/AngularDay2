@@ -29,12 +29,12 @@
                         <div class="form-group">
                             <p>Please check all the emotions that apply to you</p>
 
-                            <div class="checkbox" ng-repeat="x in emotions">
-                                <label><input type="checkbox" name="{{x}}">{{x}}</label>
+                            <div class="checkbox" ng-repeat="emotion in emotions">
+                                <label><input type="checkbox" ng-checked="isChecked(emotion)" ng-click="toggleSelect(emotion)" name="{{emotion}}">{{emotion}}</label>
                             </div>
-                            
+
                             <br>
-                            
+
                             <div class="form-group">
                                 <p>How satisfied were you with our service?</p>
 
@@ -79,6 +79,10 @@
                                 <p>Name: {{feedback.name}}</p>
                                 <p>Gender: {{feedback.gender}}</p>
                                 <p>Email: {{feedback.email}}</p>
+                                <p ng-repeat="selected in feedback.selectedEmotions">
+                                    {{selected}} is selected
+
+                                </p>
                             </div>
                         </div>
                 </div>
