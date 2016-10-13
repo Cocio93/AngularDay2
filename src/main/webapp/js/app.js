@@ -21,7 +21,7 @@ myApp.controller('CarController', [function () {
   myApp.controller('FeedbackController', ['$scope', function($scope) {
   var feedback={};
   $scope.locations = ["New York","Vancouver","Atlantis","Blackpool","Copenhagen"];
-  $scope.satisfactionValues = ["Very satisfied","Satisfied","Didn't care","Dissatisfied","Very dissatisfied"];
+  $scope.satisfactionValues = ["Very satisfied","Satisfied","Didn't care","Dissatisfied"];
   $scope.emotions = ["Angry","Sad","Happy","Ambivalent"];
 
   $scope.feedback = {};
@@ -44,6 +44,14 @@ myApp.controller('CarController', [function () {
   
   $scope.isChecked = function(value) {
       return ($scope.feedback.selectedEmotions.indexOf(value) > -1);
+  };
+  
+  $scope.radioClicked= function(value) {
+      $scope.feedback.satisfactionValue = value;
+  };
+  
+  $scope.isRadioChecked = function(value) {
+    return value === feedback.satisfactionValue;  
   };
 
 }]);
